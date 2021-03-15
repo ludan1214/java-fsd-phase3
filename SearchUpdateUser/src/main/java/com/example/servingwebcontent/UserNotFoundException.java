@@ -1,0 +1,5 @@
+package com.example.servingwebcontent;
+
+public class UserNotFoundException extends RuntimeException {
+    private static final long serialVersionUID = 1L;
+}
