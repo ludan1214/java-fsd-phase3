@@ -23,7 +23,6 @@ public class UpdateController {
 		Optional<User> user = userService.GetUserById(id);
 		if (!user.isPresent()) {
 			model.addAttribute("errorMessage", "User Not Found");
-			return "index";
 		} else {
 			User updatedUser = new User();
 			updatedUser.setId(Long.parseLong(id));
@@ -33,6 +32,6 @@ public class UpdateController {
 			userService.UpdateUser(updatedUser);
 			model.addAttribute("updateMessage", "User Updated!");
 		}
-		return "search";
+		return "index";
 	}
 }

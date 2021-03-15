@@ -12,6 +12,7 @@
 		<h1>Welcome!</h1>
 		</form>
 			<form action="/search" method="GET">
+			<div style="color: #0000FF;">${updateMessage}</div>
 			<div style="color: #FF0000;">${errorMessage}</div>
 			Id to Search: <input type="text" name="id">
 			<input type="submit" value="Search">

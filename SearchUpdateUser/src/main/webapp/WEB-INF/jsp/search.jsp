@@ -12,7 +12,6 @@ table, th, td {
 <body>
 	<input type="hidden" id="user" value='${user}'/>
 	<div class="user-form"">
-		<div style="color: #0000FF;">${updateMessage}</div>
 		<h1>Selected User:</h1>
 		<table id="user_table">
 			<tr>
