@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="style.css">
 <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-2.0.3.min.js"></script>   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <meta charset="ISO-8859-1">
-<title>Phase 3 Project 1</title>
+<title>Phase 3 Project 2</title>
 <script>
 	function createFeedback() {
 		$.ajax({
