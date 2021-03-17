@@ -61,16 +61,20 @@ li a:hover:not(.active) {
 li a.active {
   color: white;
   background-color: #4CAF50;
-}#user_table td, #user_table th {
+}
+
+
+.feedbackTable td, .feedbackTable th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#user_table tr:nth-child(even){background-color: #f2f2f2;}
+.feedbackTable tr:nth-child(even){background-color: #f2f2f2;}
 
-#user_table tr:hover {background-color: #ddd;}
+.feedbackTable tr:hover {background-color: #ddd;}
 
-#user_table th {
+
+.feedbackTable th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;

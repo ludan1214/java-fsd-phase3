@@ -1,4 +1,4 @@
-package com.javafsdphase3.DisplayingUserFeedback.controllers;
+package com.javafsdphase3.DisplayingUserFeedback;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,9 +10,10 @@ public class MainController {
 	
 	 @GetMapping(value="/")
      public String showIndexPage(ModelMap model, 
-    		 @RequestParam(value="name", required=false, defaultValue="World") String name){
-	     model.addAttribute("name", name);    
-	     System.out.println("Working Directory = " + System.getProperty("user.dir"));
+    		 @RequestParam(value="username", required=false) String username,
+     		 @RequestParam(value="message", required=false) String message){
+	     model.addAttribute("name", username);    
+	     model.addAttribute("message", message);  
 		 return "index";
      }
 }
