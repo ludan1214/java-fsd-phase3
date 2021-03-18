@@ -15,7 +15,7 @@
 			<div style="color: #0000FF;">${successMessage}</div>
 			<div style="color: #FF0000;">${errorMessage}</div>
 			Username: <input type="text" name="username" id="username"> 
-			Message: <input type="text" name="password" id="password"> 
+			Password: <input type="text" name="password" id="password"> 
 			<input type="submit" value="Login">
 		</form>
 	</div>
