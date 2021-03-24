@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.example.TaskManager.controllers.LoginController;
+import com.example.TaskManager.controllers.MainController;
 
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -28,7 +28,7 @@ public class AuthenticationWebTests {
 
 
     @Autowired
-    private LoginController controller;
+    private MainController controller;
 
 
 
