@@ -1,4 +1,4 @@
-package com.example.Authentication;
+package com.example.TaskManager;
 
 
 import com.example.TaskManager.entities.TaskUser;
@@ -11,8 +11,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-
-
 @DataJpaTest
 
 public class AuthenticationTests {
@@ -21,8 +19,27 @@ public class AuthenticationTests {
     
     @Autowired
 	private UserRepository userRepository;
-	//@Autowired
-	//private UserService userService = new UserService();
+    
+    @Test
+    public void findUserTasks_thenReturnTasks() {
+        // given
+    	UserService userService = new UserService();
+    	userService.setUserRepository(userRepository);
+        TaskUser dummyUser = new TaskUser();
+        dummyUser.setUsername("admin");
+        dummyUser.setEmail("example@example.com");
+        dummyUser.setPassword("password");
+        entityManager.persist(dummyUser);
+        entityManager.flush();
+
+        // when
+        
+        TaskUser found = userService.GetUserByUsername(dummyUser.getUsername());
+
+        // then
+        
+        assertEquals(found.getUsername(), dummyUser.getUsername());
+    }
     
     @Test
     public void whenFindByName_thenReturnUser() {

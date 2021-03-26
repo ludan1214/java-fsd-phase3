@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.TaskManager.entities.Task;
 import com.example.TaskManager.entities.TaskUser;
 import com.example.TaskManager.repositories.UserRepository;
 

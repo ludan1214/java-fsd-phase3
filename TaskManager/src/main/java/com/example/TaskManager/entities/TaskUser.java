@@ -1,9 +1,13 @@
 package com.example.TaskManager.entities;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity // This tells Hibernate to make a table out of this class
@@ -19,6 +23,9 @@ public class TaskUser {
 
     private String password;
     
+    @OneToMany (mappedBy = "user", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    private List<Task> tasks;
+    
     public TaskUser() {}
     
     public TaskUser(String username, String email, String password) {
@@ -26,6 +33,15 @@ public class TaskUser {
     	this.email = email;
     	this.password = password;
     }
+    
+    public List<Task> getTasks() {
+		return tasks;
+	}
+    
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
 
     public String getPassword() {
         return password;
@@ -57,6 +73,20 @@ public class TaskUser {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+	@Override
+    public boolean equals(Object o) {
+    	if (o == this) {
+    		return true;
+    	}
+    	
+    	if(!(o instanceof Task)) {
+    		return false;
+    	}
+    	
+    	Task c = (Task) o;
+    	return c.getId() == this.id;
     }
     
     @Override

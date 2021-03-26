@@ -33,6 +33,16 @@ public class MainController {
         return "createTask";
     }
     
+    @GetMapping("/updateTask")
+    public String showUpdateTask(ModelMap map) {
+        return "updateTask";
+    }
+    
+    @GetMapping("/deleteTask")
+    public String showDeleteTask(ModelMap map) {
+        return "deleteTask";
+    }
+    
     
 
 
