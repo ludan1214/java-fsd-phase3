@@ -4,13 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 <meta charset="ISO-8859-1">
 <title>Dashboard</title>
 </head>
 <body>
 <ul>
   <li><a href="logout">Logout</a></li>
+  <li><a href="createTask">Add Task</a></li>
 </ul>
 <h1>
 Welcome to the Task Manager!

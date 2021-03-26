@@ -11,7 +11,7 @@ table, th, td {
 </head>
 <body>
 	<input type="hidden" id="user" value='${user}'/>
-	<div class="user-form"">
+	<div class="user-form">
 		<h1>Selected User:</h1>
 		<table id="user_table">
 			<tr>
@@ -34,7 +34,6 @@ table, th, td {
 		<h1>Update a User</h1>
 		<hr>
 		<br>
-		</form>
 		<form action="/update" method="GET">
 			Current Id<input type="text" name="id"> 
 			New Username<input type="text" name="username"> 
@@ -43,7 +42,6 @@ table, th, td {
 			<input type="submit" value="Update">
 		</form>
 
-		</form>
 		<form action="/search" method="GET">
 			<div style="color: #FF0000;">${errorMessage}</div>
 			<h1>Search a different User ID</h1>

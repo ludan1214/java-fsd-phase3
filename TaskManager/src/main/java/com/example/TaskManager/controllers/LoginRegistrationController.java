@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.example.TaskManager.entities.TaskUser;
 import com.example.TaskManager.exceptions.UserAlreadyExistsException;
 import com.example.TaskManager.exceptions.UserNotFoundException;
-import com.example.TaskManager.repositories.UserRepository;
 import com.example.TaskManager.services.UserService;
 
 @Controller
