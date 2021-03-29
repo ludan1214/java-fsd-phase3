@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,10 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.TaskManager.entities.Task;
@@ -53,7 +49,6 @@ public class TaskController {
 		if (user == null) {
 			throw new UserNotFoundException(username);
 		}
-		System.out.println(user.getTasks());
 		logger.debug("Retrieving tasks for User: " + user);
 	    List<Task> result = taskService.GetTasksByUser(user);
 	    if (result == null) {
@@ -94,13 +89,12 @@ public class TaskController {
 		Principal principal = request.getUserPrincipal();
 		String username = principal.getName();
 		TaskUser foundUser = userService.GetUserByUsername(username);
-    	if (foundUser != null && !task.getUser().equals(foundUser)) {
+    	if (foundUser != null) {
     		Task updatedTask = new Task(name, start, end, severity, description, email, foundUser);
+    		updatedTask.setId(task.getId()); // Set Id to original task id
     		taskService.UpdateTask(updatedTask);
     		logger.info("User: " + username + " updated a task :\n" + task);
     		model.addAttribute("successMessage", "Task Successfully updated!!");
-    	} else if (foundUser != null && task.getUser().equals(foundUser)) { // Task associated with this user not found
-    		throw new TaskNotFoundException(name + " not found!");
     	} else {
     		logger.debug("User not Found: " + username);
     		throw new UserNotFoundException(username);
@@ -192,7 +186,7 @@ public class TaskController {
 	public ModelAndView handleTaskNotFoundException(HttpServletRequest request, Exception ex){
 		ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.addObject("errorMessage", "Task not found!");
-	    modelAndView.setViewName("login");
+	    modelAndView.setViewName("deleteTask");
 	    return modelAndView;
 	}
 }

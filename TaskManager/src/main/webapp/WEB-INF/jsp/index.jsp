@@ -19,6 +19,11 @@
 			<form action="/register" method="GET">
 			<input type="submit" value="Register">
 		</form>
+		<hr>
+		</form>
+			<form action="http://localhost:8080/swagger-ui.html#/" method="GET">
+			<input type="submit" value="View Swagger Documentation">
+		</form>
 	</div>
 </body>
 </html>

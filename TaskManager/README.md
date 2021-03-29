@@ -1,41 +1,73 @@
-# Handling User Authentication .
-## DESCRIPTION
+# Phase 3 End Project - Create a Task Manager
+
+## Application
+
+## Project Objective:
+Create a task manager application with spring boot and spring Data JPA.
 
 
-## Project objective:
+### Background of Problem Statement:
 
-Set up a spring boot project to do testing of a user authentication class which is used in the main web application. The objective is to create a JUnit class that will test all aspects of the authentication class.
+The Task Manager is for organizing tasks (or to-dos) for workers.
+
+The logged in user should be able to create, display, delete, and update tasks (basically to-do items.)
+
+Tasks are the user's own tasks. Users create and edit tasks to themselves but can neither create tasks 
+for others, reassign existing tasks to other users or even view tasks that do not belong to them.
+
+The application will have UI in JSP.
+
+Suggested JSP Pages:
+ 1. create task
+ 2. display tasks
+ 3. delete tasks
+ 4. update task.
+ 5. Login
+ 6. User Registration
+ 7. Index/Welcome 
+
+### Important Notes:
+ *  Project must be well organized in packages.
+ * Usage of Repository, Service, Entity, and custom exception handling
+ * All data must persist in the database. (User information should also be stored in database)
+ * User must be logged in before adding or seeing the tasks. (spring boot security is acceptable but not mandatory.)
+ * User must get registered, to perform the login.
+ * Either monolithic or microservice based architecture is acceptable.
+
+### Important fields of this application:
+ * Task name (text box)
+ * Start date (date picker)
+ * End date (date picker)
+ * Description (text area)
+ * Email (text box)
+ * Severity (drop down) (High, medium, low)
+ * User (tasks should belong to a user)
+
+### SQL
+
+```sql
+use db_example;
+CREATE TABLE `task` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `end_date` datetime(6) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `severity` varchar(255) DEFAULT NULL,
+  `start_date` datetime(6) DEFAULT NULL,
+  `user_id` int DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK2hsytmxysatfvt0p1992cw449` (`user_id`),
+  CONSTRAINT `FK2hsytmxysatfvt0p1992cw449` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+use db_example;
+insert into task (description, email, start_date, end_date, name, severity, user_id) VALUES 
+("Task Description", "tim@gmail.com", '2021-03-21', '2021-03-22', "Task 1", "High", 1);
+
+```
 
 
-## Background of the problem statement:
+### Deadline 
 
-As a part of developing an ecommerce web application, a test-suite is being created to do unit testing of all backend components in the web application. This project will test the user authentication class. This project will be a Spring Boot Java application, since Junit does not directly test servlets or web pages. We are only testing the classes that have the business logic.
-
-
-You must use the following:
-
- *  Eclipse as the IDE
- *  Apache Tomcat as the web server
- *  Junit 5
-
-
-
-Following requirements should be met:
-
- *  Create a Spring Boot Project
- *  Create a set of business classes that  that has all the methods related to user authentication
- *  Create a view/controller in Spring MVC to perform a basic UI function related to User Authentication. 
-    - You can use any Spring View or Controller for this; JSP/Thymeleaft/ etc.  
-    - The point of creating the view controller is just to get it working; it won't be tested
-    - You may also use MySQL to implement the app but it is not required.
- *  Create a JUnit test class to create unit tests for business logic classes.
-    - There is no need to directly test the Spring MVC view or controllers.
- *  Run the test class directly as a JUnit and check if all the tests pass
- *  Document the step-by-step process involved in completing this task
-
-
-#### Due Date
-
- 22-March-2021
-
- 
+2021-03-30

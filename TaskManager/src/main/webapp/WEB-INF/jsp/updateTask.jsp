@@ -21,8 +21,8 @@
 		<form action="/updateTask" method="post"">
 			<div style="color: #0000FF;">${successMessage}</div>
 			<div style="color: #FF0000;">${errorMessage}</div>
-			<select name="severity" id="severity">
-			  <option value="" disabled selected>Severity Level</option>
+			<select name="severity" id="severity" required>
+			  <option value="unspecified" disabled selected>Severity Level</option>
 			  <option value="low">low</option>
  			  <option value="medium">medium</option>
   			  <option value="high">high</option>
