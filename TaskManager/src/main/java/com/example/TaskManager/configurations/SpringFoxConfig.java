@@ -24,7 +24,18 @@ public class SpringFoxConfig {
 	}
 
 	private Predicate<String> postPaths() {
-		return or(regex("/addTask/posts.*"), regex("/api/javainuse.*"));
+		return or(
+				regex("/.*"),
+				regex("/login.*"),
+				regex("/register.*"),
+				regex("/dashboard.*"),
+				regex("/addTask.*"),
+				regex("/createTask.*"),
+				regex("/updateTask.*"),
+				regex("/deleteTask.*"), 
+				regex("/displayTasks.*"),
+				regex("/api/javainuse.*")
+			);
 	}
 
 	private ApiInfo apiInfo() {
